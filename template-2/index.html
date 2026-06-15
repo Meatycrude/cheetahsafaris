@@ -43,7 +43,7 @@
           <i class="fa-solid fa-paper-plane cursor-pointer"></i>
 
           <button id="menuBtn" class="cursor-pointer">
-            <i class="fa-solid fa-bars"></i>
+            <i id="menuIcon" class="fa-solid fa-bars"></i>
           </button>
 
           <i class="fa-solid fa-share-nodes cursor-pointer"></i>
@@ -51,7 +51,7 @@
 
         <div
           id="menuPanel"
-          class="hidden absolute top-28 left-1/2 -translate-x-1/2 bg-white shadow-xl border border-gray-200 z-50 w-64 text-left"
+          class="hidden absolute top-28 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 rounded-md z-50 w-64 text-left"
         >
           <div class="p-5">
             <h3 class="font-bold text-lg mb-4">Navigation</h3>
@@ -59,10 +59,17 @@
             <nav class="flex flex-col gap-3 text-sm uppercase font-semibold">
               <a href="#hero" class="hover:text-gray-500">Home</a>
               <a href="#map" class="hover:text-gray-500">Route Map</a>
-              <a href="#day-1" class="hover:text-gray-500"> 01</a>
-              <a href="#day-2" class="hover:text-gray-500"> 02</a>
-              <a href="#day-3" class="hover:text-gray-500"> 03</a>
-              <a href="#advisory" class="hover:text-gray-500">Advisory</a>
+              <a href="#day-1" class="hover:text-gray-500">01</a>
+              <a href="#day-2" class="hover:text-gray-500">02</a>
+              <a href="#day-3" class="hover:text-gray-500">03</a>
+              <a href="#day-4" class="hover:text-gray-500">04</a>
+              <a href="#day-5" class="hover:text-gray-500">05</a>
+              <a href="#advisory-1" class="hover:text-gray-500"
+                >Advisory page 1</a
+              >
+              <a href="#advisory-2" class="hover:text-gray-500"
+                >Advisory page 2</a
+              >
             </nav>
           </div>
         </div>
@@ -390,22 +397,33 @@
     </section>
     <script>
       const menuBtn = document.getElementById("menuBtn");
+      const menuIcon = document.getElementById("menuIcon");
       const menuPanel = document.getElementById("menuPanel");
 
-      menuBtn.addEventListener("click", () => {
-        menuPanel.classList.toggle("hidden");
-      });
+      function closeMenu() {
+        menuPanel.classList.add("hidden");
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+      }
 
-      document.addEventListener("click", (e) => {
-        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
-          menuPanel.classList.add("hidden");
-        }
+      menuBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        menuPanel.classList.toggle("hidden");
+        menuIcon.classList.toggle("fa-bars");
+        menuIcon.classList.toggle("fa-xmark");
       });
 
       menuPanel.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          menuPanel.classList.add("hidden");
-        });
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("click", (event) => {
+        if (
+          !menuBtn.contains(event.target) &&
+          !menuPanel.contains(event.target)
+        ) {
+          closeMenu();
+        }
       });
     </script>
   </body>
