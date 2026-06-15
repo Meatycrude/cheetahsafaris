@@ -109,16 +109,41 @@
           />
 
           <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-full bg-white flex flex-col items-center"
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-full bg-white flex flex-col items-center z-50"
           >
-            <button class="mt-12 text-2xl">
-              <i class="fa-solid fa-bars"></i>
+            <!-- Menu Button -->
+            <button id="mobileMenuBtn" class="mt-12 text-2xl">
+              <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
             </button>
 
             <i class="fa-solid fa-paper-plane mt-10"></i>
             <i class="fa-solid fa-share-nodes mt-10"></i>
 
             <div class="w-[32px] h-[150px] bg-gray-400 mt-14"></div>
+
+            <!-- Mobile Menu -->
+            <div
+              id="mobileMenuPanel"
+              class="hidden absolute top-24 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 w-64"
+            >
+              <div class="p-5">
+                <h3 class="font-bold text-lg mb-4">Navigation</h3>
+
+                <nav
+                  class="flex flex-col gap-3 text-sm uppercase font-semibold"
+                >
+                  <a href="#hero" class="hover:text-gray-500">Home section </a>
+                  <a href="#map" class="hover:text-gray-500">Route Map</a>
+                  <a href="#day-1" class="hover:text-gray-500"> 01</a>
+                  <a href="#day-2" class="hover:text-gray-500"> 02</a>
+                  <a href="#day-3" class="hover:text-gray-500"> 03</a>
+                  <a href="#day-4" class="hover:text-gray-500"> 04</a>
+                  <a href="#advisory-1" class="hover:text-gray-500"
+                    >Advisory page 1
+                  </a>
+                </nav>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -561,6 +586,39 @@
         link.addEventListener("click", () => {
           menuPanel.classList.add("hidden");
         });
+      });
+    </script>
+    <script>
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenuIcon = document.getElementById("mobileMenuIcon");
+      const mobileMenuPanel = document.getElementById("mobileMenuPanel");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenuPanel.classList.toggle("hidden");
+
+        mobileMenuIcon.classList.toggle("fa-bars");
+        mobileMenuIcon.classList.toggle("fa-xmark");
+      });
+
+      mobileMenuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenuPanel.classList.add("hidden");
+
+          mobileMenuIcon.classList.remove("fa-xmark");
+          mobileMenuIcon.classList.add("fa-bars");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !mobileMenuBtn.contains(e.target) &&
+          !mobileMenuPanel.contains(e.target)
+        ) {
+          mobileMenuPanel.classList.add("hidden");
+
+          mobileMenuIcon.classList.remove("fa-xmark");
+          mobileMenuIcon.classList.add("fa-bars");
+        }
       });
     </script>
   </body>
