@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template 04 - Big Five Safari Kenya</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-black font-sans">
+    <!-- HERO -->
+    <section id="hero" class="min-h-screen bg-white">
+      <div
+        class="grid grid-cols-1 md:grid-cols-[28%_32%_12%_28%] h-[70vh] gap-2"
+      >
+        <div>
+          <img src="./assets/hero-1.jpg" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="grid grid-rows-2 gap-2">
+          <img src="./assets/hero-2.jpg" class="w-full h-full object-cover" />
+          <img src="./assets/hero-3.jpg" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="bg-white flex flex-col items-center pt-20 gap-14 relative">
+          <button id="menuBtn" class="text-3xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <i class="fa-solid fa-paper-plane text-xl"></i>
+          <i class="fa-solid fa-share-nodes text-lg"></i>
+
+          <div class="w-10 h-40 bg-gray-400 mt-8"></div>
+
+          <div
+            id="menuPanel"
+            class="hidden absolute top-24 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 z-50 w-64 text-left"
+          >
+            <div class="p-5">
+              <h3 class="font-bold text-lg mb-4">Navigation</h3>
+
+              <nav class="flex flex-col gap-3 text-sm uppercase font-semibold">
+                <a href="#hero" class="hover:text-gray-500">Hero Section</a>
+                <a href="#map" class="hover:text-gray-500">Safari Route Map</a>
+                <a href="#day-1" class="hover:text-gray-500">Day 01</a>
+                <a href="#advisory-1" class="hover:text-gray-500">Advisory</a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-rows-2 gap-2">
+          <img src="./assets/hero-4.jpg" class="w-full h-full object-cover" />
+          <img src="./assets/hero-5.jpg" class="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <div
+        class="min-h-[30vh] px-10 md:px-24 py-10 flex flex-col md:flex-row items-center justify-between gap-10"
+      >
+        <h1 class="text-5xl md:text-7xl font-black leading-tight">
+          Big Five<br />
+          Safari Kenya
+        </h1>
+
+        <div class="text-center md:text-right">
+          <div
+            class="flex items-center justify-center md:justify-end gap-3 mb-10"
+          >
+            <img
+              src="./assets/logo-icon.png"
+              class="w-16 h-16 object-contain"
+            />
+
+            <div class="text-left">
+              <h2 class="text-2xl font-black tracking-[0.25em] leading-none">
+                CHEETAH
+              </h2>
+              <p class="text-xs tracking-[0.85em] mt-2">SAFARIS</p>
+            </div>
+          </div>
+
+          <p class="font-black uppercase">
+            Nairobi | Samburu | Aberdares /<br />
+            Solio | Lake Nakuru | Maasai Mara
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <section id="map" class="h-screen">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0336194699566!2d36.96765837501293!3d-1.1363712988527408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d15f395473%3A0x14ec6bdc88e3d95e!2sCheetah%20Safaris!5e0!3m2!1sen!2ske!4v1781439524320!5m2!1sen!2ske"
+        class="w-full h-full border-0"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
+    </section>
+
+    <!-- DAY 01 PLACEHOLDER -->
+    <section id="day-1" class="min-h-screen bg-white">
+      <!-- Top row -->
+      <div class="grid grid-cols-1 md:grid-cols-[28%_44%_28%] min-h-[42vh]">
+        <!-- Left image -->
+        <div class="bg-gray-400">
+          <img
+            src="./assets/day-1-left.jpg"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Centre top text -->
+        <div class="bg-white px-10 py-20">
+          <div class="flex gap-6 items-start">
+            <h2 class="text-8xl md:text-9xl font-light leading-none">01</h2>
+
+            <div class="text-sm">
+              <p class="font-bold mb-8">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
+                diam nonummy nibh euismod tincidunt ut laoreet dolore.
+              </p>
+
+              <h3 class="font-bold text-base mb-3">
+                <i class="fa-solid fa-location-dot mr-2"></i>Lorem ipsum
+              </h3>
+
+              <ul class="list-disc pl-5 space-y-2">
+                <li>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </li>
+                <li>
+                  Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right image -->
+        <div class="bg-gray-400">
+          <img
+            src="./assets/day-1-right.jpg"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+
+      <!-- Bottom row -->
+      <div class="grid grid-cols-1 md:grid-cols-[28%_44%_28%] min-h-[58vh]">
+        <!-- Left text -->
+        <div class="bg-white px-10 md:px-24 py-16 text-sm">
+          <h3 class="font-bold text-base mb-6">
+            <i class="fa-regular fa-star mr-2"></i>Lorem ipsum
+          </h3>
+
+          <ul class="list-disc pl-5 space-y-3">
+            <li>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </li>
+            <li>
+              Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </li>
+            <li>
+              Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Centre large image -->
+        <div class="bg-gray-400">
+          <img
+            src="./assets/day-1-main.jpg"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Right text -->
+        <div class="bg-white px-10 md:px-24 py-16 text-sm">
+          <h3 class="font-bold text-base mb-6">
+            <i class="fa-solid fa-campground mr-2"></i>Lorem ipsum
+          </h3>
+
+          <ul class="list-disc pl-5 space-y-3">
+            <li>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </li>
+            <li>
+              Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+              nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
+              erat volutpat.
+            </li>
+            <li>
+              Ut wisi enim ad minim veniam, quis nostrud exerci tation
+              ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+              consequat.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="h-screen">
+      <img src="./assets/day-1-full.jpg" class="w-full h-full object-cover" />
+    </section>
+
+    <!-- ADVISORY PLACEHOLDER -->
+
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+
+      menuBtn.addEventListener("click", () => {
+        menuPanel.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+          menuPanel.classList.add("hidden");
+        }
+      });
+
+      menuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuPanel.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
