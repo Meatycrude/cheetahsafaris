@@ -14,7 +14,7 @@
   </head>
 
   <body class="bg-white text-black font-sans">
-    <section class="relative min-h-screen bg-white overflow-hidden">
+    <section id="hero" class="relative min-h-screen bg-white overflow-hidden">
       <div class="absolute top-0 left-0 w-[18%] h-[62%] hidden md:block">
         <img
           src="./assets/hero-side-left.jpg"
@@ -37,10 +37,34 @@
       <div
         class="relative z-10 min-h-screen flex flex-col items-center text-center px-6"
       >
-        <div class="mt-20 w-[310px] flex items-center justify-between text-xl">
-          <i class="fa-solid fa-paper-plane"></i>
-          <i class="fa-solid fa-bars"></i>
-          <i class="fa-solid fa-share-nodes"></i>
+        <div
+          class="mt-20 w-[310px] flex items-center justify-between text-xl relative z-50"
+        >
+          <i class="fa-solid fa-paper-plane cursor-pointer"></i>
+
+          <button id="menuBtn" class="cursor-pointer">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <i class="fa-solid fa-share-nodes cursor-pointer"></i>
+        </div>
+
+        <div
+          id="menuPanel"
+          class="hidden absolute top-28 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 z-50 w-64 text-left"
+        >
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-4">Navigation</h3>
+
+            <nav class="flex flex-col gap-3 text-sm uppercase font-semibold">
+              <a href="#hero" class="hover:text-gray-500">Home</a>
+              <a href="#map" class="hover:text-gray-500">Route Map</a>
+              <a href="#day-1" class="hover:text-gray-500"> 01</a>
+              <a href="#day-2" class="hover:text-gray-500"> 02</a>
+              <a href="#day-3" class="hover:text-gray-500"> 03</a>
+              <a href="#advisory" class="hover:text-gray-500">Advisory</a>
+            </nav>
+          </div>
         </div>
         <div class="mt-14 flex items-center justify-center gap-4">
           <img src="./assets/logo-icon.png" class="w-20 h-20 object-contain" />
@@ -71,7 +95,7 @@
       </div>
     </section>
 
-    <section class="h-screen">
+    <section id="map" class="h-screen">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0336194699566!2d36.96765837501293!3d-1.1363712988527408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d15f395473%3A0x14ec6bdc88e3d95e!2sCheetah%20Safaris!5e0!3m2!1sen!2ske!4v1781439524320!5m2!1sen!2ske"
         class="w-full h-full border-0"
@@ -80,7 +104,10 @@
       ></iframe>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen">
+    <section
+      id="day-1"
+      class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen"
+    >
       <div class="flex items-end p-8">
         <img
           alt=""
@@ -138,7 +165,10 @@
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen">
+    <section
+      id="day-2"
+      class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen"
+    >
       <div class="px-12 py-24 flex flex-col justify-center">
         <p class="font-bold mb-10">
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
@@ -191,7 +221,10 @@
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen">
+    <section
+      id="day-3"
+      class="grid grid-cols-1 md:grid-cols-[40%_20%_40%] min-h-screen"
+    >
       <div class="flex items-center p-8">
         <img
           alt=""
@@ -244,7 +277,7 @@
       </div>
     </section>
 
-    <section class="min-h-screen px-10 md:px-24 py-24 bg-white">
+    <section id="advisory" class="min-h-screen px-10 md:px-24 py-24 bg-white">
       <div class="grid grid-cols-1 md:grid-cols-[1fr_260px_1fr] gap-12">
         <div class="space-y-14">
           <div>
@@ -355,5 +388,25 @@
         </div>
       </div>
     </section>
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+
+      menuBtn.addEventListener("click", () => {
+        menuPanel.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+          menuPanel.classList.add("hidden");
+        }
+      });
+
+      menuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuPanel.classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
