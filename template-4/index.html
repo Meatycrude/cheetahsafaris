@@ -21,28 +21,51 @@
 
   <body class="bg-white text-black font-sans">
     <!-- HERO -->
-    <section id="hero" class="min-h-screen bg-white">
+    <section id="hero" class="min-h-screen bg-white overflow-hidden">
+      <!-- DESKTOP HERO IMAGE GRID -->
       <div
-        class="grid grid-cols-1 md:grid-cols-[28%_32%_12%_28%] h-[70vh] gap-2"
+        class="hidden md:grid h-[70vh] grid-cols-[28%_32%_12%_28%] gap-[8px]"
       >
-        <div>
-          <img src="./assets/hero-1.jpg" class="w-full h-full object-cover" />
+        <div class="grid grid-rows-2 gap-[8px] overflow-hidden">
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-1.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-2.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
         </div>
 
-        <div class="grid grid-rows-2 gap-2">
-          <img src="./assets/hero-2.jpg" class="w-full h-full object-cover" />
-          <img src="./assets/hero-3.jpg" class="w-full h-full object-cover" />
+        <div class="grid grid-rows-2 gap-[8px] overflow-hidden">
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-3.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-4.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
         </div>
 
-        <div class="bg-white flex flex-col items-center pt-20 gap-14 relative">
-          <button id="menuBtn" class="text-3xl">
-            <i class="fa-solid fa-bars"></i>
+        <!-- White menu strip -->
+        <div class="bg-white flex flex-col items-center pt-20 relative">
+          <button id="menuBtn" class="text-3xl mb-12">
+            <i id="menuIcon" class="fa-solid fa-bars"></i>
           </button>
 
-          <i class="fa-solid fa-paper-plane text-xl"></i>
-          <i class="fa-solid fa-share-nodes text-lg"></i>
+          <i class="fa-solid fa-paper-plane text-xl mb-12"></i>
+          <i class="fa-solid fa-share-nodes text-lg mb-20"></i>
 
-          <div class="w-10 h-40 bg-gray-400 mt-8"></div>
+          <div class="w-[38px] h-[232px] bg-gray-400"></div>
 
           <div
             id="menuPanel"
@@ -61,38 +84,74 @@
           </div>
         </div>
 
-        <div class="grid grid-rows-2 gap-2">
-          <img src="./assets/hero-4.jpg" class="w-full h-full object-cover" />
-          <img src="./assets/hero-5.jpg" class="w-full h-full object-cover" />
+        <div class="grid grid-rows-2 gap-[8px] overflow-hidden">
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-5.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <div class="overflow-hidden">
+            <img
+              src="./assets/hero-6.jpg"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
         </div>
       </div>
 
+      <!-- MOBILE HERO -->
+      <div class="md:hidden">
+        <div class="relative h-[58vh] overflow-hidden">
+          <img
+            src="./assets/hero-1.jpg"
+            class="w-full h-full object-cover object-center"
+          />
+
+          <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-[120px] h-full bg-white flex flex-col items-center"
+          >
+            <button class="mt-12 text-2xl">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <i class="fa-solid fa-paper-plane mt-10"></i>
+            <i class="fa-solid fa-share-nodes mt-10"></i>
+
+            <div class="w-[32px] h-[150px] bg-gray-400 mt-14"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOTTOM CONTENT -->
       <div
-        class="min-h-[30vh] px-10 md:px-24 py-10 flex flex-col md:flex-row items-center justify-between gap-10"
+        class="h-[30vh] min-h-[235px] px-8 md:px-[88px] flex flex-col md:flex-row items-center justify-between bg-white"
       >
-        <h1 class="text-5xl md:text-7xl font-black leading-tight">
+        <h1
+          class="text-[48px] md:text-[68px] font-black leading-[0.98] tracking-[-0.04em]"
+        >
           Big Five<br />
           Safari Kenya
         </h1>
 
-        <div class="text-center md:text-right">
+        <div class="text-center md:text-right mt-8 md:mt-0">
           <div
-            class="flex items-center justify-center md:justify-end gap-3 mb-10"
+            class="flex items-center justify-center md:justify-end gap-3 mb-[58px]"
           >
             <img
               src="./assets/logo-icon.png"
-              class="w-16 h-16 object-contain"
+              class="w-[62px] h-[62px] object-contain"
             />
 
             <div class="text-left">
-              <h2 class="text-2xl font-black tracking-[0.25em] leading-none">
+              <h2 class="text-[25px] font-black tracking-[0.25em] leading-none">
                 CHEETAH
               </h2>
-              <p class="text-xs tracking-[0.85em] mt-2">SAFARIS</p>
+              <p class="text-[10px] tracking-[0.85em] mt-[8px]">SAFARIS</p>
             </div>
           </div>
 
-          <p class="font-black uppercase">
+          <p class="text-[16px] font-black uppercase leading-tight">
             Nairobi | Samburu | Aberdares /<br />
             Solio | Lake Nakuru | Maasai Mara
           </p>
