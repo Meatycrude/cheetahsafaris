@@ -9,10 +9,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
   </head>
 
   <body class="bg-white text-black font-sans">
-    <section class="min-h-screen grid grid-cols-1 md:grid-cols-[60%_40%]">
+    <section
+      id="hero"
+      class="min-h-screen grid grid-cols-1 md:grid-cols-[60%_40%]"
+    >
       <div class="min-h-[60vh] md:min-h-screen">
         <img
           src="./assets/hero.jpg"
@@ -28,8 +36,35 @@
           <i class="fa-solid fa-share-nodes cursor-pointer"></i>
           <i class="fa-regular fa-paper-plane cursor-pointer"></i>
         </div>
-        <div class="absolute top-8 right-8 text-2xl cursor-pointer">
-          <i class="fa-solid fa-grip-lines"></i>
+        <button
+          id="menuBtn"
+          class="absolute top-8 right-8 text-2xl cursor-pointer z-50"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div
+          id="menuPanel"
+          class="hidden absolute top-20 right-8 bg-white shadow-2xl border border-gray-200 z-50 w-64"
+        >
+          <div class="p-5">
+            <h3 class="font-bold text-lg mb-4">Navigation</h3>
+
+            <nav class="flex flex-col gap-3 text-sm uppercase font-semibold">
+              <a href="#hero" class="hover:text-gray-500">Home</a>
+              <a href="#map" class="hover:text-gray-500"> Route Map</a>
+              <a href="#day-1" class="hover:text-gray-500"> 01</a>
+              <a href="#day-2" class="hover:text-gray-500"> 02</a>
+              <a href="#day-3" class="hover:text-gray-500"> 03</a>
+              <a href="#day-4" class="hover:text-gray-500"> 04</a>
+              <a href="#advisory-1" class="hover:text-gray-500"
+                >Advisory Page 1</a
+              >
+              <a href="#advisory-2" class="hover:text-gray-500"
+                >Advisory Page 2</a
+              >
+            </nav>
+          </div>
         </div>
 
         <div class="absolute top-16 right-6 flex items-center gap-3">
@@ -64,7 +99,7 @@
       </div>
     </section>
 
-    <section class="h-screen">
+    <section id="map" class="h-screen">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0336194699566!2d36.96765837501293!3d-1.1363712988527408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d15f395473%3A0x14ec6bdc88e3d95e!2sCheetah%20Safaris!5e0!3m2!1sen!2ske!4v1781439524320!5m2!1sen!2ske"
         class="w-full h-full border-0"
@@ -73,7 +108,7 @@
       ></iframe>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+    <section id="day-1" class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       <div class="bg-white px-10 md:px-20 py-16 flex flex-col justify-center">
         <div class="flex items-end gap-4 mb-8">
           <h2 class="text-7xl md:text-8xl font-light">01</h2>
@@ -137,7 +172,7 @@
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+    <section id="day-2" class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       <div class="min-h-[70vh] md:min-h-screen order-2 md:order-1">
         <img
           src="./assets/safari-4.jpg"
@@ -199,7 +234,7 @@
     </section>
 
     <!-- PAGE LAYOUT 3 -->
-    <section class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+    <section id="day-3" class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       <div class="bg-white px-10 md:px-20 py-16 flex flex-col justify-center">
         <div class="flex items-end gap-4 mb-8">
           <h2 class="text-7xl md:text-8xl font-light">03</h2>
@@ -263,7 +298,7 @@
       </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+    <section id="day-4" class="grid grid-cols-1 md:grid-cols-2 min-h-screen">
       <div class="min-h-[70vh] md:min-h-screen order-2 md:order-1">
         <img
           src="./assets/safari-4.jpg"
@@ -324,7 +359,7 @@
       </div>
     </section>
 
-    <section class="bg-white px-10 md:px-20 py-20 min-h-screen">
+    <section id="advisory-1" class="bg-white px-10 md:px-20 py-20 min-h-screen">
       <div class="grid grid-cols-1 md:grid-cols-[1fr_280px_1fr] gap-12">
         <div class="space-y-14">
           <div>
@@ -420,7 +455,7 @@
       </div>
     </section>
 
-    <section class="bg-white px-10 md:px-10 py-10 min-h-screen">
+    <section id="advisory-2" class="bg-white px-10 md:px-10 py-10 min-h-screen">
       <div class="grid grid-cols-1 md:grid-cols-[1fr_280px_1fr] gap-12">
         <div class="space-y-14">
           <div>
@@ -515,5 +550,25 @@
         </div>
       </div>
     </section>
+    <script>
+      const menuBtn = document.getElementById("menuBtn");
+      const menuPanel = document.getElementById("menuPanel");
+
+      menuBtn.addEventListener("click", () => {
+        menuPanel.classList.toggle("hidden");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+          menuPanel.classList.add("hidden");
+        }
+      });
+
+      menuPanel.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menuPanel.classList.add("hidden");
+        });
+      });
+    </script>
   </body>
 </html>
