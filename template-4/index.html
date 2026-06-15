@@ -58,7 +58,7 @@
 
         <!-- White menu strip -->
         <div class="bg-white flex flex-col items-center pt-20 relative">
-          <button id="menuBtn" class="text-3xl mb-12">
+          <button id="menuBtn" class="text-3xl mb-12 z-50">
             <i id="menuIcon" class="fa-solid fa-bars"></i>
           </button>
 
@@ -69,7 +69,7 @@
 
           <div
             id="menuPanel"
-            class="hidden absolute top-24 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 z-50 w-64 text-left"
+            class="hidden absolute top-40 left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-gray-200 z-50 w-64 text-left rounded-lg"
           >
             <div class="p-5">
               <h3 class="font-bold text-lg mb-4">Navigation</h3>
@@ -169,10 +169,10 @@
             />
 
             <div class="text-left">
-              <h2 class="text-[25px] font-black tracking-[0.25em] leading-none">
+              <h2 class="text-[25px] font-black tracking-[0.35em] leading-none">
                 CHEETAH
               </h2>
-              <p class="text-[10px] tracking-[0.85em] mt-[8px]">SAFARIS</p>
+              <p class="text-[10px] tracking-[1.95em] mt-[8px]">SAFARIS</p>
             </div>
           </div>
 
@@ -570,22 +570,41 @@
 
     <script>
       const menuBtn = document.getElementById("menuBtn");
+      const menuIcon = document.getElementById("menuIcon");
       const menuPanel = document.getElementById("menuPanel");
 
-      menuBtn.addEventListener("click", () => {
-        menuPanel.classList.toggle("hidden");
-      });
+      function openMenu() {
+        menuPanel.classList.remove("hidden");
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-xmark");
+      }
 
-      document.addEventListener("click", (e) => {
-        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
-          menuPanel.classList.add("hidden");
+      function closeMenu() {
+        menuPanel.classList.add("hidden");
+        menuIcon.classList.remove("fa-xmark");
+        menuIcon.classList.add("fa-bars");
+      }
+
+      menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (menuPanel.classList.contains("hidden")) {
+          openMenu();
+        } else {
+          closeMenu();
         }
       });
 
       menuPanel.querySelectorAll("a").forEach((link) => {
         link.addEventListener("click", () => {
-          menuPanel.classList.add("hidden");
+          closeMenu();
         });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuBtn.contains(e.target) && !menuPanel.contains(e.target)) {
+          closeMenu();
+        }
       });
     </script>
     <script>
